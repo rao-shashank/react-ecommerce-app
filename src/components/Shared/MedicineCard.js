@@ -14,6 +14,10 @@ import MedImage from '../../assets/medicine-item.jpg';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    maxHeight: 300,
+    marginLeft: 20,
+    marginTop: 20,
+    marginRight: 20,
   },
 });
 
@@ -32,7 +36,7 @@ const MedicineCard = (props) => {
             title="Contemplative Reptile"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom component="h2">
               {props.name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
