@@ -1,13 +1,13 @@
-import React from 'react';
-import './App.css';
-import AddUser from './components/Users/AddUser';
+import React, { Fragment } from 'react';
+
+import Header from './components/Layout/Header';
 
 function App() {
   return (
-    <div>
-      <AddUser />
-    </div>
-  );
+      <Fragment>
+        <Header />
+      </Fragment>
+    );
 }
 
 export default App;
