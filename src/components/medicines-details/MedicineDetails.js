@@ -42,7 +42,7 @@ const useStyles = makeStyles({
                                 <strong>Desc:</strong> { medicinesObj.description }
                             </Typography>
                             <Typography gutterBottom>
-                                <strong>Price:</strong> <span>&#8377;</span> {medicinesObj.price}
+                                <strong>Price:</strong> <span>&#8377;</span> {medicinesObj.price.toFixed(2)}
                             </Typography>
                         </CardContent>
 

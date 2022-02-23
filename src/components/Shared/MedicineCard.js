@@ -50,7 +50,7 @@ const MedicineCard = (props) => {
         </CardActionArea>
         <CardActions>
           <h4 size="small" color="primary">
-            <span>&#8377;</span> {props.price}
+            <span>&#8377;</span> {props.price.toFixed(2)}
           </h4>
           <Button size="small" color="primary">
             View Details
