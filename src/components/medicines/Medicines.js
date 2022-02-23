@@ -1,4 +1,5 @@
 import { Grid } from '@material-ui/core/'
+import { useNavigate } from "react-router-dom";
 
 import MedicineCard from '../Shared/MedicineCard';
 
@@ -31,17 +32,30 @@ const STATIC_MEDICINES_DATA = [
       id: '5',
       name: 'VITAMIN -D3 NANO SHOTS2',
       description: 'Aceclofenac+Paracetamol is used for pain relief',
-      price: 250,
+      price: 270,
     },
   ];
 
-
 const Medicines = () => {
+  const navigate = useNavigate();
+
+  const goToMedicineDetails = (medicines) => {
+    const medicinesObj = {
+      id: medicines.id,
+      name: medicines.name,
+      description: medicines.description,
+      price: medicines.price
+    }
+    navigate(`/medicine/${medicines.id}`, {state :{ medicinesObj }, replace:true});
+  };
+
     const medicinesList = STATIC_MEDICINES_DATA.map(med => 
         <MedicineCard
+          id={med.id}
           name={med.name}
           description={med.description}
           price={med.price}
+          onClick={goToMedicineDetails}
         />
       )
     
@@ -50,7 +64,7 @@ const Medicines = () => {
         container
         spacing={2}
         direction="row"
-        justify="flex-start"
+        justifyContent="flex-start"
         alignItems="flex-start"
       >
       {medicinesList}

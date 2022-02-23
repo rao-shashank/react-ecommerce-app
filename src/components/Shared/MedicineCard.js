@@ -24,9 +24,13 @@ const useStyles = makeStyles({
 const MedicineCard = (props) => {
   const classes = useStyles();
 
+  const onClickHandler = () => {
+    props.onClick(props);
+  };
+
   return (
     <Grid item xs={12} sm={6} md={3}>
-      <Card className={classes.root}>
+      <Card className={classes.root} onClick={onClickHandler}>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -45,9 +49,8 @@ const MedicineCard = (props) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-
           <h4 size="small" color="primary">
-            <span>&#8377;</span>{props.price}
+            <span>&#8377;</span> {props.price}
           </h4>
           <Button size="small" color="primary">
             View Details
