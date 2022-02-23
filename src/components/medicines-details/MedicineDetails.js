@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles,
-    Box,
     Card,
     CardActions,
     CardContent,
@@ -8,6 +7,8 @@ import { makeStyles,
     Typography,
     Grid } from '@material-ui/core/';
 import { useLocation, useParams } from 'react-router-dom';
+
+import MedicineItemForm from '../medicines/MedicineItemForm'; 
 
 const useStyles = makeStyles({
     root: {
@@ -48,11 +49,11 @@ const useStyles = makeStyles({
 
                         <CardActions>
                             <Button color="primary" href="/">Back</Button>
-                            <Button variant="contained">+ Add To Cart</Button>
+                            <MedicineItemForm />
                         </CardActions>
                     </React.Fragment>
                 </Card>
-            </Grid>      
+            </Grid>
        </Grid>
       );
 };
