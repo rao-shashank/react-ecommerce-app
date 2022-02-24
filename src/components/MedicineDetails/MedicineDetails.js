@@ -8,7 +8,7 @@ import { makeStyles,
     Grid } from '@material-ui/core/';
 import { useLocation, useParams } from 'react-router-dom';
 
-import MedicineItemForm from '../medicines/MedicineItemForm'; 
+import MedicineItemForm from '../Medicines/MedicineItemForm'; 
 
 const useStyles = makeStyles({
     root: {
@@ -34,24 +34,22 @@ const useStyles = makeStyles({
       
             <Grid item item xs={12} sm={6} md={3}>
                 <Card variant="outlined" className={classes.root}>
-                    <React.Fragment>
-                        <CardContent>
-                            <Typography gutterBottom>
-                                <strong>Name:</strong> { medicinesObj.name }
-                            </Typography>
-                            <Typography gutterBottom>
-                                <strong>Desc:</strong> { medicinesObj.description }
-                            </Typography>
-                            <Typography gutterBottom>
-                                <strong>Price:</strong> <span>&#8377;</span> {medicinesObj.price.toFixed(2)}
-                            </Typography>
-                        </CardContent>
+                    <CardContent>
+                        <Typography gutterBottom>
+                            <strong>Name:</strong> { medicinesObj.name }
+                        </Typography>
+                        <Typography gutterBottom>
+                            <strong>Desc:</strong> { medicinesObj.description }
+                        </Typography>
+                        <Typography gutterBottom>
+                            <strong>Price:</strong> <span>&#8377;</span> {medicinesObj.price.toFixed(2)}
+                        </Typography>
+                    </CardContent>
 
-                        <CardActions>
-                            <Button color="primary" href="/">Back</Button>
-                            <MedicineItemForm />
-                        </CardActions>
-                    </React.Fragment>
+                    <CardActions>
+                        <Button color="primary" href="/">Back</Button>
+                        <MedicineItemForm />
+                    </CardActions>
                 </Card>
             </Grid>
        </Grid>

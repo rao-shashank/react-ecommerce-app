@@ -1,4 +1,4 @@
-import Medicines from '../medicines/Medicines';
+import Medicines from '../Medicines/Medicines';
 
 const MedicinesLanding = () => {
     return <Medicines />

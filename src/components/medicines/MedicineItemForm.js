@@ -1,11 +1,13 @@
+import React, { useState } from "react";
 import { Button, TextField,} from '@material-ui/core/';
 
-import CartModal from '../Cart/Cart';
+import CartDialog from '../Cart/Cart';
 
 const MedicineItemForm = () => {
-
-    const openCartDialog = () => {
-        return <CartModal />;
+    const [isOpen, setIsOpen] = useState(false);
+    
+    const handleOpen = () => {
+        setIsOpen(!isOpen);
     };
 
     return (
@@ -17,7 +19,11 @@ const MedicineItemForm = () => {
                 variant="standard"
                 helperText="Select Qty"
             />
-            <Button variant="contained" onClick={openCartDialog}>+ Add To Cart</Button>
+            <CartDialog
+                isDialogOpened={isOpen}
+                handleCloseDialog={() => setIsOpen(false)}
+            />
+            <Button variant="contained" onClick={() => handleOpen()}>+ Add To Cart</Button>
         </form>
     );
 };
