@@ -1,6 +1,13 @@
 import { Button, TextField,} from '@material-ui/core/';
 
+import CartModal from '../Cart/Cart';
+
 const MedicineItemForm = () => {
+
+    const openCartDialog = () => {
+        return <CartModal />;
+    };
+
     return (
         <form>
             <TextField
@@ -10,7 +17,7 @@ const MedicineItemForm = () => {
                 variant="standard"
                 helperText="Select Qty"
             />
-            <Button variant="contained">+ Add To Cart</Button>
+            <Button variant="contained" onClick={openCartDialog}>+ Add To Cart</Button>
         </form>
     );
 };

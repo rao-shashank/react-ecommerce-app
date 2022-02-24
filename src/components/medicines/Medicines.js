@@ -51,6 +51,7 @@ const Medicines = () => {
 
     const medicinesList = STATIC_MEDICINES_DATA.map(med => 
         <MedicineCard
+          key={med.id}
           id={med.id}
           name={med.name}
           description={med.description}
