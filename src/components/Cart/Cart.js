@@ -1,29 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
+  Button,
   Dialog,
   DialogTitle,
   DialogContent,
   DialogContentText,
   DialogActions
 } from "@material-ui/core";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+
+import classes from './Cart.module.css';
+import CartItem from './CartItem';
+import CartContext from "../../store/CartContext";
 
 export default function CartDialog({ isDialogOpened, handleCloseDialog }) {
-  useEffect(() => {
-    handleClickOpen();
-  }, []);
+  const cartCtx = useContext(CartContext);
 
-  const [fullWidth, setFullWidth] = React.useState(true);
+  const totalAmount = cartCtx.totalAmount.toFixed(2);
+  const hasItems = cartCtx.items.length > 0;
+
+  const cartItemRemoveHandler = id => {};
+
+  const cartItemAddHandler = item => {};
+
+  const cartItems = (
+    <ul className={classes['cart-items']}>
+      {cartCtx.items.map((item) => (
+        <CartItem
+          key={item.id}
+          name={item.name}
+          qty={item.qty}
+          price={item.price}
+          onRemove={cartItemRemoveHandler.bind(null, item.id)}
+          onAdd={cartItemAddHandler.bind(null, item)}
+        />
+      ))}
+    </ul>
+  );
+
+  const [fullWidth, setFullWidth] = useState(true);
   const [maxWidth] = React.useState("sm");
-
-  const handleClickOpen = () => {
-  };
 
   const handleClose = () => {
     handleCloseDialog(false);
-  };
-
-  const handleFullWidthChange = (event) => {
-    setFullWidth(event.target.checked);
   };
 
   return (
@@ -35,13 +55,23 @@ export default function CartDialog({ isDialogOpened, handleCloseDialog }) {
         onClose={handleClose}
         aria-labelledby="max-width-dialog-title"
       >
-        <DialogTitle id="max-width-dialog-title"></DialogTitle>
+        <DialogTitle id="max-width-dialog-title">Basket</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            <span>Cart!</span>
+            { hasItems && <div>
+                {cartItems}
+                <div className={classes.total}>
+                    <span>Total Amount</span>
+                    <span>&#8377; {totalAmount}</span>
+                </div>
+            </div> }
+            { !hasItems && <div>Your Basket is empty! Pick up where you left off</div> }
           </DialogContentText>
         </DialogContent>
-        <DialogActions></DialogActions>
+        <DialogActions>
+            <Button color="primary" variant="contained" type="cancel" onClick={handleClose}>Cancel</Button>
+            {hasItems && <Button color="primary" variant="contained">Order</Button>}
+        </DialogActions>
       </Dialog>
     </React.Fragment>
   );

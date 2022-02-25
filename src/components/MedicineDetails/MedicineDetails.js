@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles,
     Card,
     CardActions,
@@ -8,7 +8,8 @@ import { makeStyles,
     Grid } from '@material-ui/core/';
 import { useLocation, useParams } from 'react-router-dom';
 
-import MedicineItemForm from '../Medicines/MedicineItemForm'; 
+import MedicineItemForm from '../Medicines/MedicineItemForm';
+import CartContext from '../../store/CartContext';
 
 const useStyles = makeStyles({
     root: {
@@ -20,7 +21,19 @@ const useStyles = makeStyles({
   const MedicineDetails  = () => {
     const { state } = useLocation();
     const { medicinesObj } = state;
+
+    const cartCtx = useContext(CartContext);
+
     const classes = useStyles();
+
+    const addToCartHandler = qty => {
+        cartCtx.addItem({
+            id: medicinesObj.id,
+            name: medicinesObj.name,
+            qty: qty,
+            price: medicinesObj.price
+        });
+    };
     
     return (
         <Grid
@@ -48,7 +61,7 @@ const useStyles = makeStyles({
 
                     <CardActions>
                         <Button color="primary" href="/">Back</Button>
-                        <MedicineItemForm />
+                        <MedicineItemForm onAddToCart={addToCartHandler}/>
                     </CardActions>
                 </Card>
             </Grid>

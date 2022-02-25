@@ -5,9 +5,11 @@ import Header from './components/Layout/Header';
 import MedicinesLanding from './components/MedicinesLanding/MedicinesLanding';
 import MedicineDetails from './components/MedicineDetails/MedicineDetails';
 
+import CartProvider from '../src/store/CartProvider';
+
 function App() {
   return (
-    <>
+    <CartProvider>
       <Header />
       <main>
         <Router>
@@ -17,7 +19,7 @@ function App() {
           </Routes >
         </Router>
       </main>
-    </>
+    </CartProvider>
   );
 }
 
