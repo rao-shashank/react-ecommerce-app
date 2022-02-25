@@ -10,6 +10,7 @@ const MedicineItemForm = (props) => {
         horizontal: 'center',
       });
     const { vertical, horizontal, open } = state;
+    
     const handleClose = () => {
         setState({ ...state, open: false });
     };
@@ -29,7 +30,7 @@ const MedicineItemForm = (props) => {
     };
 
     return (
-        <form >
+        <form>
             <TextField
                 type="number"
                 required
@@ -39,14 +40,15 @@ const MedicineItemForm = (props) => {
                 inputRef={qtyRef}
             />
             <Button type="button" variant="contained" onClick={submitHandler}>+ Add To Cart</Button>
-            {!qtyIsValid && 
+            {!qtyIsValid &&
             <Snackbar
                 anchorOrigin={{ vertical, horizontal }}
                 open={open}
                 onClose={handleClose}
                 message="Quantity should be between 1-10"
                 key={vertical + horizontal}
-            />}
+            />
+            }
         </form>
     );
 };
