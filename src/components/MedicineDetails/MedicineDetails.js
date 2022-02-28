@@ -9,7 +9,7 @@ import { makeStyles,
 import { useLocation, useParams } from 'react-router-dom';
 
 import MedicineItemForm from '../Medicines/MedicineItemForm';
-import CartContext from '../../store/CartContext';
+import CartContext from '../../contexts/CartContext';
 
 const useStyles = makeStyles({
     root: {

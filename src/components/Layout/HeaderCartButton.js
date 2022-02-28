@@ -3,7 +3,7 @@ import React, { useState, useContext } from "react";
 import CartIcon from './CartIcon';
 
 import CartDialog from '../Cart/Cart';
-import CartContext from '../../store/CartContext';
+import CartContext from '../../contexts/CartContext';
 import { HeaderCartButtonStyle, CartIconStyle, CartBadgeStyle } from './HeaderCartButton.styled';
 
 const HeaderCartButton = (props) => {

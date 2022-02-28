@@ -6,10 +6,8 @@ import { HeaderStyle, BannerImage } from './Header.styled';
 const Header = (props) => {
     return <>
         <HeaderStyle>
-            <header>
-                <h1>B2B Retail Medicines</h1>
-                <HeaderCartButton />
-            </header>
+            <h1>B2B Retail Medicines</h1>
+            <HeaderCartButton />
         </HeaderStyle>
         <BannerImage>
             <img src={bannerImage} />

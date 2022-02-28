@@ -10,7 +10,7 @@ import { makeStyles,
   Grid } from '@material-ui/core/';
 
 import MedImage from '../../assets/medicine-item.jpg';
-import CartContext from '../../store/CartContext';
+import CartContext from '../../contexts/CartContext';
 
 const useStyles = makeStyles({
   root: {
