@@ -1,18 +1,20 @@
 import React from 'react';
 import bannerImage from '../../assets/banner-medicine.jpg';
-import classes from './Header.module.css';
 import HeaderCartButton from './HeaderCartButton';
+import { HeaderStyle, BannerImage } from './Header.styled';
 
 const Header = (props) => {
-    return <React.Fragment>
-        <header className={classes.header}>
-            <h1>B2B Retail Medicines</h1>
-            <HeaderCartButton />
-        </header>
-        <div className={classes['banner-image']}>
+    return <>
+        <HeaderStyle>
+            <header>
+                <h1>B2B Retail Medicines</h1>
+                <HeaderCartButton />
+            </header>
+        </HeaderStyle>
+        <BannerImage>
             <img src={bannerImage} />
-        </div>
-    </React.Fragment>
+        </BannerImage>
+    </>
 };
 
 export default Header;

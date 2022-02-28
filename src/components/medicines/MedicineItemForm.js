@@ -39,7 +39,7 @@ const MedicineItemForm = (props) => {
                 helperText="Select Qty"
                 inputRef={qtyRef}
             />
-            <Button type="button" variant="contained" onClick={submitHandler}>+ Add To Cart</Button>
+            <Button type="button" color="primary" onClick={submitHandler}>+ Add To Cart</Button>
             {!qtyIsValid &&
             <Snackbar
                 anchorOrigin={{ vertical, horizontal }}

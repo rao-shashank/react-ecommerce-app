@@ -60,9 +60,9 @@ const useStyles = makeStyles({
                     </CardContent>
 
                     <CardActions>
-                        <Button color="primary" href="/">Back</Button>
                         <MedicineItemForm onAddToCart={addToCartHandler}/>
                     </CardActions>
+                    <Button color="primary" href="/">Back</Button>
                 </Card>
             </Grid>
        </Grid>

@@ -1,4 +1,7 @@
-.header {
+import styled from "styled-components";
+
+export const HeaderStyle = styled.div`
+  header {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,17 +15,17 @@
   padding: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 10;
-}
+  } 
+  `;
 
-.banner-image {
+  export const BannerImage = styled.div`
   width: 100%;
   height: 25rem;
   z-index: 0;
   overflow: hidden;
-}
-
-.banner-image img {
-  width: 110%;
-  height: 100%;
-  object-fit: cover;
-}
+  img {
+    width: 110%;
+    height: 100%;
+    object-fit: cover;
+  }
+  `;

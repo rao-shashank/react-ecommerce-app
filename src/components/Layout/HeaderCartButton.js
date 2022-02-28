@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 
 import CartIcon from './CartIcon';
-import classes from './HeaderCartButton.module.css';
 
 import CartDialog from '../Cart/Cart';
 import CartContext from '../../store/CartContext';
+import { HeaderCartButtonStyle, CartIconStyle, CartBadgeStyle } from './HeaderCartButton.styled';
 
 const HeaderCartButton = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,12 +25,18 @@ const HeaderCartButton = (props) => {
                     isDialogOpened={isOpen}
                     handleCloseDialog={() => setIsOpen(false)}
             />
-            <button className={classes.button} onClick={() => handleOpen()}>
-            <span className={classes.icon}>
+            <HeaderCartButtonStyle>
+            <button onClick={() => handleOpen()}>
+            <CartIconStyle>
+            <span>
                 <CartIcon />
             </span>
-            <span className={classes.badge}>{numberOfCartItems}</span>
+            </CartIconStyle>
+            <CartBadgeStyle>
+            <span>{numberOfCartItems}</span>
+            </CartBadgeStyle>
             </button>
+            </HeaderCartButtonStyle>
         </>
     );
 };
